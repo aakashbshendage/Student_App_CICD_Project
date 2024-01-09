@@ -9,7 +9,7 @@ pipeline {
         stage('Gitcheck Out') {
             steps {
                 git changelog: false, poll: false, url: 'https://github.com/SurajBele/studentapp.ui.git'
-                echo 'Pull sucessfull'
+                echo 'Pull sucess'
             }
         }
        
