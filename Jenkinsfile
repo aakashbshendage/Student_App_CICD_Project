@@ -26,20 +26,20 @@ pipeline {
                          withSonarQubeEnv(credentialsId: 'sonar')
                     {
                        sh 'mvn sonar:sonar'
-                       echo ' Test sucess'
+                       echo ' Test sucessful'
                     }
                 }
             }
         }
        
-        // stage("Quality Gate"){
-        //    steps {
-        //         script {
-        //             waitForQualityGate abortPipeline: false, credentialsId: 'Sonar'
-        //             echo ' Quality Gate test sucessfull'
-        //         }
-        //     }
-        // }
+        stage("Quality Gate"){
+           steps {
+                script {
+                    waitForQualityGate abortPipeline: false, credentialsId: 'sonar'
+                    echo ' Quality Gate test sucessfull'
+                }
+            }
+        }
        
         // stage ('Deploy') {
         //     steps {
