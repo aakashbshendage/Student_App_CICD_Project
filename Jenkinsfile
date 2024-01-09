@@ -13,24 +13,24 @@ pipeline {
             }
         }
        
-        // stage('Compile') {
-        //     steps {
-        //         sh 'mvn clean package -DskipTests=true'
-        //         echo 'Build sucessfull'
-        //     }
-        // }
+        stage('Compile') {
+            steps {
+                sh 'mvn clean package -DskipTests=true'
+                echo 'Build sucessfull'
+            }
+        }
        
-        // stage('Sonar Analysis') {
-        //     steps {
-        //         script{
-        //                  withSonarQubeEnv(credentialsId: 'Sonar')
-        //             {
-        //                sh 'mvn sonar:sonar'
-        //                echo ' Test sucessfull'
-        //             }
-        //         }
-        //     }
-        // }
+        stage('Sonar Analysis') {
+            steps {
+                script{
+                         withSonarQubeEnv(credentialsId: 'sonar')
+                    {
+                       sh 'mvn sonar:sonar'
+                       echo ' Test sucessfull'
+                    }
+                }
+            }
+        }
        
         // stage("Quality Gate"){
         //    steps {
