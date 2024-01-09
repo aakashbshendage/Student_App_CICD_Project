@@ -26,7 +26,7 @@ pipeline {
                          withSonarQubeEnv(credentialsId: 'sonar')
                     {
                        sh 'mvn sonar:sonar'
-                       echo ' Test sucessfull'
+                       echo ' Test sucess'
                     }
                 }
             }
