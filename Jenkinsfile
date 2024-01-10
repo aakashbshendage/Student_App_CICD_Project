@@ -46,11 +46,13 @@ pipeline {
             }
          }
        
-        // stage ('Deploy') {
-        //     steps {
-        //         deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://3.89.37.154:8080/')], contextPath: '/', war: '**/*.war'
-        //         echo ' Deploy sucessfull'
-        //     }
-        // }
+         stage ('Deploy') {
+             steps {
+                 deploy adapters: [tomcat9(credentialsId: 'Tomcat', // Enter your tomcat credentials here
+                                           path: '', url: 'http://3.108.235.70:8080/')], // Enter here tomcat instance IP
+                     contextPath: '/', war: '**/*.war'
+                 echo ' Deploy sucessfull'
+             }
+         }
     }
 }
